@@ -1,0 +1,22 @@
+<launch>
+  <!-- <master auto="start"/> -->
+  <!-- <include file="$(find inobo_navigation)/launch/map_server.launch"/> -->
+  <!-- map_server はコマンドから起動（map名を手動で設定するため） -->
+
+  <!-- <node name="stwinkt1b" pkg="stwinkt1b" type="sensor_data_send.py" />
+  <node name="imu_filter_madgwick" pkg="imu_filter_madgwick" type="imu_filter_node" >
+    <param name="use_mag" value="false" />
+    <param name="publish_tf" value="false" />
+    <param name="remove_gravity_vector" value="false" />
+    <param name="orientation_stddev" value="0.1" />
+  </node> -->
+
+  <include file="$(find inobo_navigation)/launch/laser_odometry_ekf.launch"/>
+  <include file="$(find inobo_navigation)/launch/amcl.launch"/>
+  <include file="$(find robot_localization)/launch/inobo_localization2.launch"/> 
+
+  <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+  <node name="inobo_motor_send" pkg="inobo_motor_send" type="inobo_motor_send.py" />
+
+</launch>
+

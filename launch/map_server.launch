@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="map_file" default="$(find inobo_navigation)/maps/mymap.yaml"/>
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="/home/jetson/slam_map/mymap.yaml"/> -->
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find inobo_navigation)/maps/mymap.yaml"/> -->
+</launch>

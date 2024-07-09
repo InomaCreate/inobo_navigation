@@ -1,0 +1,21 @@
+<launch>
+
+  <arg name="tf_map_scanmatch_transform_frame_name" default="scanmatcher_frame"/>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+      <!-- <rosparam file="/home/jetson/catkin_ws/src/amcl_test/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="/home/jetson/catkin_ws/src/amcl_test/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="/home/jetson/catkin_ws/src/amcl_test/param/local_costmap_params.yaml" command="load"/>
+      <rosparam file="/home/jetson/catkin_ws/src/amcl_test/param/global_costmap_params.yaml" command="load"/>
+      <rosparam file="/home/jetson/catkin_ws/src/amcl_test/param/base_local_planner_params.yaml" command="load"/>
+      <rosparam file="/home/jetson/catkin_ws/src/amcl_test/param/move_base_params.yaml" command="load"/> -->
+
+      <rosparam file="$(find inobo_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find inobo_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find inobo_navigation)/param/local_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find inobo_navigation)/param/global_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find inobo_navigation)/param/base_local_planner_params.yaml" command="load"/>
+      <rosparam file="$(find inobo_navigation)/param/move_base_params.yaml" command="load"/>
+    </node>
+</launch>
+
