@@ -1,0 +1,19 @@
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.0 0 0 0.0 0.0 0.0 /base_link /laser 100" />
+
+  <!-- <master auto="start"/> -->
+  <!-- <include file="$(find inobo_navigation)/launch/map_server.launch"/> -->
+  <!-- map_server はコマンドから起動（map名を手動で設定するため） -->
+
+  <!-- <include file="$(find inobo_navigation)/launch/laser_odometry.launch"/> -->
+  <!-- <include file="$(find inobo_navigation)/launch/amcl.launch"/>  -->
+
+  <!-- <include file="$(find rplidar_ros)/launch/rplidar.launch"/> -->
+  <!-- <node name="inobo_motor_send" pkg="inobo_motor_send" type="inobo_motor_send.py" /> -->
+  <!-- <node name="odom_publisher" pkg="motor_odom" type="motor_odom.py" /> -->
+  <node name="pose_fusion_node" pkg="pose_fusion_node" type="pose_fusion_node.py" />
+  <include file="$(find emcl2)/launch/emcl2.launch"/>
+
+
+</launch>
+
